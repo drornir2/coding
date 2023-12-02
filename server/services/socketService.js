@@ -25,9 +25,9 @@ const handleLeaveRoom = (socket) => (roomId) => {
 
 export const setUpIo = (server) => {
   const io = new SocketIOServer(server, {
-    cors: {
-      origin: "http://localhost:3000",
-    },
+    // cors: {
+    //   origin: "http://localhost:3000",
+    // },
   });
   io.on("connect", (socket) => {
     socket.on("join-room", handleJoinRoom(socket, io));
