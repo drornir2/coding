@@ -43,7 +43,6 @@ export const checkIfSolved = async (req, res) => {
     if (codingRoom) {
       const isCodeEqual =
         codingRoom.currentCode.trim() === codingRoom.solution.trim();
-      console.log(isCodeEqual);
       res.status(StatusCodes.ACCEPTED).json({ isSolved: isCodeEqual });
     }
   } catch (error) {

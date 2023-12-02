@@ -12,6 +12,10 @@ const CodeEditor = () => {
     lineNumbersMinChars: 3,
     fontSize: 16,
     automaticLayout: true,
+    suggest: {
+      triggerForIncompleteCompletions: 0,
+      suggestOnTriggerCharacters: false,
+    },
   };
   return (
     <MonacoEditor

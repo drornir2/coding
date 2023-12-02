@@ -29,6 +29,8 @@
   line-height: normal;
 }
 .btn {
+  width: 20rem;
+  justify-self: center;
   cursor: pointer;
   color: var(--white);
   background: var(--primary-50);

@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./lobby.css";
-import { CodeBlockLink } from "../../components/index";
+import { CodingRoomLink } from "../../components/index";
 import { useLoaderData } from "react-router-dom";
 import { getCodingRoomsList } from "../../services/codingRoomService";
 import { toast } from "react-toastify";
@@ -20,10 +20,10 @@ const Lobby = () => {
 
   return (
     <section className="lobby-section">
-      <h1 className="title">Choose code block</h1>
+      <h1 className="title">choose code block</h1>
       <div className="room-links">
         {codingRoomsList.map((room) => {
-          return <CodeBlockLink key={room._id} {...room} />;
+          return <CodingRoomLink key={room._id} {...room} />;
         })}
       </div>
     </section>

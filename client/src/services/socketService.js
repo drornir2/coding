@@ -1,6 +1,4 @@
 import { io } from "socket.io-client";
-//constructor
-// let socket = new io("http://localhost:5000");
 var socket;
 export const connectSocket = async () => {
   if (!socket) {

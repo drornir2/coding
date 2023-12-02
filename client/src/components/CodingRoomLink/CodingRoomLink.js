@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./codeBlockLink.css";
+import "./codingRoomLink.css";
 const CodeBlockLink = ({ _id, name }) => {
   return (
     <Link to={`../${_id}`}>

@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <nav>
       <div className="nav-center">
-        <h1 className="nav-title">{`</> ${title}'s Room`}</h1>
+        <h1 className="nav-title">{`</> ${title} Room`}</h1>
         <Link to={"../"} className="icon-container" onClick={onLeaveRoom}>
           <RiArrowGoBackFill
             className="go-back-icon"

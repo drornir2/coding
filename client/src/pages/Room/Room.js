@@ -15,6 +15,7 @@ import {
   receiveCode,
 } from "../../services/socketService";
 import { getRoomId } from "../../utils/utils";
+
 export const loader = async ({ request }) => {
   try {
     const roomId = getRoomId(request.url);
@@ -22,9 +23,10 @@ export const loader = async ({ request }) => {
     await connectSocket();
     return codingRoom;
   } catch {
-    return redirect("/"); //redirect to lobby
+    return redirect("/"); //redirect to lobby in case of error
   }
 };
+
 const RoomContext = createContext();
 const Room = () => {
   const { codingRoom } = useLoaderData();
@@ -32,6 +34,7 @@ const Room = () => {
   const [editorContent, setEditorContent] = useState(currentCode);
   const [isMentor, setIsMentor] = useState(null);
   const [isCodeCorrect, setIsCodeCorrect] = useState(false);
+
   useEffect(() => {
     const fetchData = async () => {
       await joinRoom(_id, (isFirst) => {
@@ -40,6 +43,7 @@ const Room = () => {
     };
     fetchData();
   }, []);
+
   const onEditorChange = (newValue, event) => {
     sendCode(_id, newValue);
     setEditorContent(newValue);
@@ -50,18 +54,20 @@ const Room = () => {
   receiveCode((code) => {
     setEditorContent(code);
   });
+
   const onCheckSolution = async () => {
     try {
       const { isSolved } = await checkSolution(_id);
       if (isSolved) setIsCodeCorrect(true);
       else {
         setIsCodeCorrect(false);
-        toast.error("Code incorrect.... Try again");
+        toast.error("code incorrect.... try again");
       }
     } catch (error) {
       toast.error(error);
     }
   };
+
   return (
     <RoomContext.Provider
       value={{ isMentor, onEditorChange, onLeaveRoom, editorContent }}
@@ -83,6 +89,6 @@ const Room = () => {
     </RoomContext.Provider>
   );
 };
-export const useRoomContext = () => useContext(RoomContext);
 
+export const useRoomContext = () => useContext(RoomContext);
 export default Room;

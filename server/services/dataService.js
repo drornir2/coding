@@ -11,13 +11,12 @@ export const createRoom = async (data) => {
   return room;
 };
 export const updateRoom = async (roomId, code) => {
-  // Find the room by its ID and update the currentCode field
+  // Find the room by its ID and update currentCode field
   const updatedRoom = await CodingRoom.findOneAndUpdate(
     { _id: roomId },
     { $set: { currentCode: code } },
     { new: true } // Return the updated document
   );
-  console.log(updatedRoom.currentCode);
   return updatedRoom;
 };
 

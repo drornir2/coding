@@ -5,7 +5,6 @@ export const setUpIo = (server) => {
   const io = new SocketIOServer(server, {
     cors: {
       origin: "http://localhost:3000",
-      // methods: ["GET", "POST"],
     },
   });
   io.on("connect", (socket) => {
@@ -14,7 +13,6 @@ export const setUpIo = (server) => {
       socket.join(roomId);
       const roomAfterJoin = io.sockets.adapter.rooms.get(roomId);
       const isMentor = roomAfterJoin && roomAfterJoin.size === 1;
-      console.log("isMentor: ", isMentor);
       cb(isMentor);
     });
     socket.on("disconnect", () => {
@@ -25,9 +23,7 @@ export const setUpIo = (server) => {
       updateRoom(roomId, code);
     });
     socket.on("leave-room", (roomId) => {
-      const room = io.sockets.adapter.rooms.get(roomId);
-
-      console.log(`socket ${socket.id} left room ${roomId}, ${room.size}`);
+      console.log(`socket ${socket.id} left room ${roomId}`);
       socket.leave(roomId);
     });
   });
