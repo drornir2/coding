@@ -1,23 +1,25 @@
-# <span style="font-size:larger;">Moveo Online Coding Web App</span>
+# <span style="font-size:larger;">Moveo Task- Online Coding Web App</span>
 
 Online Coding platform designed for remote coding sessions between mentor and student.
 
 This App built with React for the frontend, NodeJS and Express for the backend, MongoDB for the database, SocketIO for displaying realtime changes.
 
+# <span style="font-size:smaller;">Installation and Setup</span>
+
 ## Available Scripts
 
-install dependencies:
+Install the dependencies and start the project:
+
+1. Open a new terminal in VSCODE.
+2. Navigate to the server directory: cd server
+3. Install dependencies:
 
 ### `setup-project`
 
-cd server directory,run both client and server using:
+4.run both client and server using:
 
 ### `npm start`
 
-### Deployment
+# <span style="font-size:smaller;">Deployment</span>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Deployment link
