@@ -5,7 +5,7 @@ import morgan from "morgan";
 import mongoose from "mongoose";
 import http from "http";
 import cors from "cors";
-import { setUpIo } from "./services/SocketService.js";
+import { setUpIo } from "./services/socketService.js";
 import codingRoomRouter from "./routes/codingRoomRouter.js";
 //public
 import path from "path";
