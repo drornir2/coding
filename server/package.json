@@ -5,7 +5,9 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "setup:project": "npm i && cd ../client && npm i",
+    "setup:client": "cd ../client && npm i",
+    "setup:server": "npm i",
+    "setup:project": "concurrently --kill-others-on-fail \"npm run setup:server\" \"npm run setup:client\"",
     "server:": "nodemon server.js",
     "client": "cd ../client && npm start",
     "start": "concurrently --kill-others-on-fail \"node server\" \"npm run client\""
