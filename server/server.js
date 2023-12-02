@@ -29,7 +29,9 @@ app.use("*", (req, res) => {
 const port = process.env.PORT || 5000;
 
 try {
-  await mongoose.connect(process.env.MONGO_URL);
+  await mongoose.connect(
+    "mongodb+srv://chen201296:coding2012@cluster0.spzdrgs.mongodb.net/codingMentor?retryWrites=true&w=majority"
+  );
   server.listen(port, () => {
     console.log("server is running on port 5000");
   });
