@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useRoomContext } from "../../pages/Room/Room";
 import { RiArrowGoBackFill } from "react-icons/ri";
 import { Link } from "react-router-dom";

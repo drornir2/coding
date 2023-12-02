@@ -1,12 +1,10 @@
 import { io } from "socket.io-client";
 var socket;
 export const connectSocket = async () => {
-  if (!socket) {
-    socket = new io("http://localhost:5000");
-    socket.on("connect", () => {
-      console.log(`you connected with socket id: ${socket.id}`);
-    });
-  }
+  socket = new io("http://localhost:5000");
+  socket.on("connect", () => {
+    console.log(`you connected with socket id: ${socket.id}`);
+  });
 };
 export const joinRoom = async (roomId, cb) => {
   socket.emit("join-room", roomId, cb);

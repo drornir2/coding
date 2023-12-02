@@ -1,31 +1,18 @@
 import React, { useContext, createContext, useEffect, useState } from "react";
-import { redirect, useLoaderData } from "react-router-dom";
-import { Navbar, CodeEditor, SmileyCard } from "../../components/index";
-import { toast } from "react-toastify";
+import { useLoaderData } from "react-router-dom";
+import {
+  Navbar,
+  CodeEditor,
+  SmileyCard,
+  CheckButton,
+} from "../../components/index";
 import "./room.css";
 import {
-  checkSolution,
-  getCodingRoomById,
-} from "../../services/codingRoomService";
-import {
-  connectSocket,
   joinRoom,
   leaveRoom,
   sendCode,
   receiveCode,
 } from "../../services/socketService";
-import { getRoomId } from "../../utils/utils";
-
-export const loader = async ({ request }) => {
-  try {
-    const roomId = getRoomId(request.url);
-    const codingRoom = await getCodingRoomById(roomId);
-    await connectSocket();
-    return codingRoom;
-  } catch {
-    return redirect("/"); //redirect to lobby in case of error
-  }
-};
 
 const RoomContext = createContext();
 const Room = () => {
@@ -55,36 +42,26 @@ const Room = () => {
     setEditorContent(code);
   });
 
-  const onCheckSolution = async () => {
-    try {
-      const { isSolved } = await checkSolution(_id);
-      if (isSolved) setIsCodeCorrect(true);
-      else {
-        setIsCodeCorrect(false);
-        toast.error("code incorrect.... try again");
-      }
-    } catch (error) {
-      toast.error(error);
-    }
-  };
-
   return (
     <RoomContext.Provider
-      value={{ isMentor, onEditorChange, onLeaveRoom, editorContent }}
+      value={{
+        onEditorChange,
+        onLeaveRoom,
+        setIsCodeCorrect,
+        isMentor,
+        editorContent,
+        _id,
+      }}
     >
       <section className="room-section">
         <Navbar />
         {isCodeCorrect && <SmileyCard />}
-        <header className="room-header">
+        <div className="room-header">
           <h2 className="room-title">{name}</h2>
           <p className="room-description">{description}</p>
-        </header>
+        </div>
         <CodeEditor />
-        {!isMentor && (
-          <button onClick={onCheckSolution} className="btn">
-            check me!
-          </button>
-        )}
+        {!isMentor && <CheckButton />}
       </section>
     </RoomContext.Provider>
   );

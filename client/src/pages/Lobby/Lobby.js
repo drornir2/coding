@@ -1,9 +1,9 @@
 import React from "react";
-import "./lobby.css";
 import { CodingRoomLink } from "../../components/index";
 import { useLoaderData } from "react-router-dom";
 import { getCodingRoomsList } from "../../services/codingRoomService";
 import { toast } from "react-toastify";
+import "./lobby.css";
 
 export const loader = async () => {
   try {

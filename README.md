@@ -1,13 +1,18 @@
-# <span style="font-size:larger;">Moveo online coding web app</span>
+# <span style="font-size:larger;">Moveo Online Coding Web App</span>
+
+Online Coding platform designed for remote coding sessions between mentor and student.
+
+This App built with React for the frontend, NodeJS and Express for the backend, MongoDB for the database, SocketIO for displaying realtime changes.
 
 ## Available Scripts
 
-In the project directory, you can run:
+install dependencies:
+
+### `setup-project`
+
+cd server directory,run both client and server using:
 
 ### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ### Deployment
 
